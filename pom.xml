@@ -10,7 +10,7 @@
 
   <groupId>com.progralink</groupId>
   <artifactId>jinout</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>JInOut - Java Input/Output library</name>
   <description>Java Input/Output utilities and wrappers</description>
@@ -20,7 +20,7 @@
     <connection>scm:git:git://github.com/Progralink/JInOut.git</connection>
     <developerConnection>scm:git:https://github.com/Progralink/JInOut.git</developerConnection>
     <url>https://github.com/Progralink/JInOut</url>
-    <tag>1.0.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <dependencies>
