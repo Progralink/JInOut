@@ -14,9 +14,7 @@ Compatible with Java 8 and higher. Add Maven dependency to your project:
 
 ## Functionalities
 
-### I/O Streams
-
-#### `IOStreams` utility
+### `IOStreams` utility
 Some helpers for `InputStream` and `OutputStream`. Static Methods below:
 - `int compare(InputStream in1, InputStream in2)`
 - `long consume(InputStream in)`
@@ -31,24 +29,24 @@ Some helpers for `InputStream` and `OutputStream`. Static Methods below:
 - `byte[] readFully(InputStream in)`
 - `void skipExactly(InputStream in, long n)`
 
-#### Input Streams
+### Input Streams
 
-##### Source Input Streams
+#### Source Input Streams
 
 - `FileChannelInputStream`
 
-##### Input Stream Decorators (wrappers)
+#### Input Stream Decorators (wrappers)
 - `EndHandlingInputStream`
 - `LengthAwareInputStream` *(extends `PositionAwareInputStream`)* 
 - `PositionAwareInputStream` *(extends `EndHandlingInputStream`)*
 
-#### Output Streams
+### Output Streams
 
-##### Target Output Streams
+#### Target Output Streams
 
 - `NullOutputStream`
 
-##### Output Stream Decorators (wrappers)
+#### Output Stream Decorators (wrappers)
 - `PositionAwareOutputStream`
 
 
@@ -167,9 +165,7 @@ Handles serialization and deserialization of primitive data types and strings.
 #### Loading hashes
 Hash can be dynamically found using `Hash.forName()` static method. It uses Service Loader so it's possible to provide custom implementation.
 
-### Unicode
-
-#### BOM
+### `BOM`
 Enumeration containing definition, magic (starting) bytes, associated charset and matcher for Unicode BOM:
 - `UTF_8`
 - `UTF_16BE`
@@ -188,7 +184,7 @@ Static Methods:
 - `BOM forCharset(Charset charset)` *returns `null` when none match*
 - `BOM findMatching(byte[] data)` *returns `null` when none match*
 
-#### StringFromBytesBuilder
+### `StringFromBytesBuilder`
 Creates String from appendable bytes, handles Unicode BOM automatically if needed.
 
 Methods:
