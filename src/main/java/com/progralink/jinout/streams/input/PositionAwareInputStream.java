@@ -6,7 +6,7 @@ import java.io.InputStream;
 
 import static com.progralink.jinout.streams.IOStreams.EOF;
 
-public class PositionAwareInputStream extends FilterInputStream {
+public class PositionAwareInputStream extends EndHandlingInputStream {
     private long position;
 
     public PositionAwareInputStream(InputStream in) {
@@ -37,9 +37,13 @@ public class PositionAwareInputStream extends FilterInputStream {
 
     @Override
     public long skip(long n) throws IOException {
-        long skipped = super.skip(n);
+        long skipped = doSkip(n);
         position += skipped;
         return skipped;
+    }
+
+    protected long doSkip(long n) throws IOException {
+        return super.skip(n);
     }
 
     @Override

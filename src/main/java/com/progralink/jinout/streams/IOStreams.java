@@ -43,6 +43,10 @@ public final class IOStreams {
     }
 
     public static long consume(InputStream in, long length) throws IOException {
+        if (length <= 0) {
+            return 0;
+        }
+
         long remaining = length;
         byte[] buffer = createByteArrayBuffer();
         int read;

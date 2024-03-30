@@ -1,7 +1,7 @@
 package com.progralink.jinout.hash;
 
+import com.progralink.jinout.BasicDataTypes;
 import com.progralink.jinout.streams.IOStreams;
-import com.progralink.jinout.Bytes;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,13 +17,13 @@ public abstract class AbstractChecksumHash extends AbstractHash {
     }
 
     @Override
-    public byte[] compute(InputStream inputStream) throws IOException {
+    public byte[] compute(InputStream in) throws IOException {
         Checksum checksum = supplier.get();
-        try (CheckedInputStream checkedInputStream = new CheckedInputStream(inputStream, checksum)) {
+        try (CheckedInputStream checkedInputStream = new CheckedInputStream(in, checksum)) {
             byte[] buffer = new byte[IOStreams.DEFAULT_BYTE_BUFFER_SIZE];
             while (checkedInputStream.read(buffer, 0, buffer.length) >= 0) {
             }
-            return Bytes.fromLong(checksum.getValue());
+            return BasicDataTypes.fromLong(checksum.getValue());
         }
     }
 
@@ -31,6 +31,6 @@ public abstract class AbstractChecksumHash extends AbstractHash {
     public byte[] compute(byte[] data, int offset, int length) {
         Checksum checksum = supplier.get();
         checksum.update(data, offset, length);
-        return Bytes.fromLong(checksum.getValue());
+        return BasicDataTypes.fromLong(checksum.getValue());
     }
 }

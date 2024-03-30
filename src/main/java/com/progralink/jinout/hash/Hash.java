@@ -33,7 +33,7 @@ public interface Hash extends Named {
     );
 
 
-    byte[] compute(InputStream inputStream) throws IOException;
+    byte[] compute(InputStream in) throws IOException;
 
     default byte[] compute(byte[] data) {
         return compute(data, 0, data.length);

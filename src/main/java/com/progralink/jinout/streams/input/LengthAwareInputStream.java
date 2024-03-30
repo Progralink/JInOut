@@ -5,12 +5,18 @@ import com.progralink.jinout.streams.IOStreams;
 import java.io.IOException;
 import java.io.InputStream;
 
+import static com.progralink.jinout.streams.IOStreams.EOF;
+
 public class LengthAwareInputStream extends PositionAwareInputStream {
     private final long initialByteLength;
 
     public LengthAwareInputStream(InputStream in, long length) {
         super(in);
         this.initialByteLength = length;
+    }
+
+    public long getInitialByteLength() {
+        return initialByteLength;
     }
 
     public long getRemainingByteLength() {
@@ -33,24 +39,34 @@ public class LengthAwareInputStream extends PositionAwareInputStream {
     @Override
     public int read() throws IOException {
         if (getRemainingByteLength() <= 0) {
-            return IOStreams.EOF;
+            onEndDetected();
+            return EOF;
         }
 
-        return super.read();
+        int b = super.read();
+        if (getRemainingByteLength() <= 0) {
+            onEndDetected();
+        }
+        return b;
     }
 
     @Override
     public int read(byte[] b, int off, int len) throws IOException {
         long remainingByteLength = getRemainingByteLength();
         if (remainingByteLength <= 0) {
-            return IOStreams.EOF;
+            onEndDetected();
+            return EOF;
         }
 
         if (len > remainingByteLength) {
             len = (int) remainingByteLength;
         }
 
-        return super.read(b, off, len);
+        int r = super.read(b, off, len);
+        if (getRemainingByteLength() <= 0) {
+            onEndDetected();
+        }
+        return r;
     }
 
     public byte[] readAll() throws IOException {
@@ -64,10 +80,10 @@ public class LengthAwareInputStream extends PositionAwareInputStream {
             n = remainingByteLength;
         }
 
-        return super.skip(n);
-    }
-
-    public long getInitialByteLength() {
-        return initialByteLength;
+        long skipped = super.skip(n);
+        if (getRemainingByteLength() <= 0) {
+            onEndDetected();
+        }
+        return skipped;
     }
 }

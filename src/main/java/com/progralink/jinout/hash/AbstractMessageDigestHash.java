@@ -34,11 +34,11 @@ public abstract class AbstractMessageDigestHash extends AbstractHash {
     }
 
     @Override
-    public byte[] compute(InputStream inputStream) throws IOException {
+    public byte[] compute(InputStream in) throws IOException {
         MessageDigest messageDigest = supplier.get();
         byte[] buffer = new byte[IOStreams.DEFAULT_BYTE_BUFFER_SIZE];
         int read;
-        while ((read = inputStream.read(buffer, 0, buffer.length)) >= 0) {
+        while ((read = in.read(buffer, 0, buffer.length)) >= 0) {
             messageDigest.update(buffer, 0, read);
         }
         return messageDigest.digest();
