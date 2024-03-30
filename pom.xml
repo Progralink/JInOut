@@ -2,33 +2,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.progralink</groupId>
-        <artifactId>progralink-opensource-parent-pom</artifactId>
-        <version>1-SNAPSHOT</version>
-    </parent>
-
+  <parent>
     <groupId>com.progralink</groupId>
-    <artifactId>jinout</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>progralink-opensource-parent-pom</artifactId>
+    <version>1-SNAPSHOT</version>
+  </parent>
 
-    <name>JInOut - Java Input/Output library</name>
-    <description>Java Input/Output utilities and wrappers</description>
+  <groupId>com.progralink</groupId>
+  <artifactId>jinout</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
 
+  <name>JInOut - Java Input/Output library</name>
+  <description>Java Input/Output utilities and wrappers</description>
+
+  <url>https://github.com/Progralink/JInOut</url>
+  <scm>
+    <connection>scm:git:git://github.com/Progralink/JInOut.git</connection>
+    <developerConnection>scm:git:https://github.com/Progralink/JInOut.git</developerConnection>
     <url>https://github.com/Progralink/JInOut</url>
-    <scm>
-        <connection>scm:git:git://github.com/Progralink/JInOut.git</connection>
-        <developerConnection>scm:git:https://github.com/Progralink/JInOut.git</developerConnection>
-        <url>https://github.com/Progralink/JInOut</url>
-        <tag>HEAD</tag>
-    </scm>
+    <tag>HEAD</tag>
+  </scm>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-        </dependency>
-    </dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+    </dependency>
+  </dependencies>
 </project>
