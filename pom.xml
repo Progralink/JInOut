@@ -22,6 +22,7 @@
         <connection>scm:git:git://github.com/Progralink/JInOut.git</connection>
         <developerConnection>scm:git:https://github.com/Progralink/JInOut.git</developerConnection>
         <url>https://github.com/Progralink/JInOut</url>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencies>
