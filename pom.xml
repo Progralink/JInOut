@@ -7,7 +7,7 @@
   <parent>
     <groupId>com.progralink</groupId>
     <artifactId>progralink-opensource-parent-pom</artifactId>
-    <version>1-SNAPSHOT</version>
+    <version>1</version>
   </parent>
 
   <groupId>com.progralink</groupId>
@@ -29,6 +29,7 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
